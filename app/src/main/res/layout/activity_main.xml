@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.wowza.gocoder.sdk.api.player.WZPlayerView
+        android:id="@+id/vwStreamPlayer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentStart="false"
+        android:layout_centerInParent="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.wowza.gocoder.sdk.api.player.WZPlayerView>
+
+    <in.sdos.client2.TimerView
+        android:id="@+id/txtTimer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        android:text="00:00:00"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintStart_toStartOf="@+id/vwStreamPlayer"
+        app:layout_constraintTop_toTopOf="@+id/vwStreamPlayer" />
+
+
+    <in.sdos.client2.MultiStateButton
+        android:id="@+id/ic_mic"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#000000ff"
+        android:contentDescription="Mute"
+        android:onClick="onToggleMute"
+        android:src="@drawable/ic_speaker_on"
+        app:layout_constraintEnd_toEndOf="@+id/vwStreamPlayer"
+        app:layout_constraintTop_toTopOf="@+id/vwStreamPlayer"
+        app:offSrc="@drawable/ic_speaker_off" />
+
+    <in.sdos.client2.MultiStateButton
+        android:id="@+id/ic_play_stream"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:background="#000000ff"
+        android:cropToPadding="false"
+        android:onClick="onTogglePlayStream"
+        android:src="@drawable/ic_stop"
+        app:layout_constraintBottom_toBottomOf="@+id/vwStreamPlayer"
+        app:layout_constraintEnd_toEndOf="@+id/vwStreamPlayer"
+        app:layout_constraintStart_toStartOf="@+id/vwStreamPlayer"
+        app:offSrc="@drawable/ic_play_stream" />
+
+
+    <com.wowza.gocoder.sdk.api.devices.WZCameraView
+        android:id="@+id/cameraPreview"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        app:defaultCamera="back"
+        app:frameSizePreset="frameSize1280x720"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vwStreamPlayer"
+        app:scaleMode="fill" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+
+    <in.sdos.client2.MultiStateButton
+        android:id="@+id/ic_torch"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_torch_off"
+        app:offSrc="@drawable/ic_torch_on"
+
+        android:background="#000000ff"
+        android:contentDescription="Torch"
+        app:layout_constraintEnd_toEndOf="@+id/cameraPreview"
+        app:layout_constraintTop_toTopOf="@+id/cameraPreview" />
+
+    <in.sdos.client2.MultiStateButton
+        android:id="@+id/ic_switch_camera"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_switch_camera"
+        android:cropToPadding="false"
+
+        android:background="#000000ff"
+        app:layout_constraintEnd_toStartOf="@+id/ic_torch"
+        app:layout_constraintTop_toTopOf="@+id/cameraPreview" />
+
+    <in.sdos.client2.TimerView
+        android:id="@+id/txtTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="00:00:00"
+        android:background="@drawable/rounded_corner"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/cameraPreview"
+        app:layout_constraintTop_toTopOf="@+id/cameraPreview" />
+
+    <in.sdos.client2.MultiStateButton
+        android:id="@+id/ic_broadcast"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="#000000ff"
+        android:cropToPadding="false"
+        android:src="@drawable/ic_start"
+        app:layout_constraintBottom_toBottomOf="@+id/cameraPreview"
+        app:layout_constraintEnd_toEndOf="@+id/cameraPreview"
+        app:layout_constraintStart_toStartOf="@+id/cameraPreview"
+        app:offSrc="@drawable/ic_start" />
+
+
+</android.support.constraint.ConstraintLayout>
